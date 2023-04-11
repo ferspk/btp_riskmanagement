@@ -23,14 +23,14 @@
     Release:
        cloudFoundryDeploy: true
        tmsUpload: false
-    steps:
-      cloudFoundryDeploy:
-        cloudFoundry: 
-          apiEndpoint: "https://api.cf.eu20-001.hana.ondemand.com"
-          org: "oysconsultorestraining"
-          space: "dev"
-          credentialsId: "cfdeploy"
-          appName: ""
-        mtaDeployParameters: "-f --version-rule ALL"
-      artifactPrepareVersion:
+ steps:
+    cloudFoundryDeploy:
+      cloudFoundry: 
+        apiEndpoint: "https://api.cf.eu20-001.hana.ondemand.com"
+        org: "oysconsultorestraining"
+        space: "dev"
+        credentialsId: "cfdeploy"
+        appName: ""
+      mtaDeployParameters: "-f --version-rule ALL"
+    artifactPrepareVersion:
         versioningType: "cloud_noTag"
