@@ -2,8 +2,8 @@ using RiskService from '../../srv/risk-service';
  // Risk List Report Page
  annotate RiskService.Risks with @(UI : {
     HeaderInfo : {
-       TypeName : 'Risk',
-       TypeNamePlural : 'Risks',
+       TypeName : 'Riego',
+       TypeNamePlural : 'Riesgos',
        Title : {
           $Type : 'UI.DataField',
           Value : title
