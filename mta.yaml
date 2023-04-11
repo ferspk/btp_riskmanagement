@@ -35,7 +35,7 @@ modules:
       memory: 256M
     requires:
       - name: srv-api
-        group: destinations 
+        group: destinations
         properties:
           name: srv-api # must be used in xs-app.json as well
           url: ~{srv-url}
@@ -54,26 +54,9 @@ modules:
     type: nodejs
     path: approuter
     requires:
-      - name: risk-management-xsuaa
       - name: srv-api
-group: destinations
- properties:
-        forwardAuthToken: true
-        strictSSL: true
-        name: srv-binding
-        url: "~{srv-url}"
-    build-parameters:
-      requires:
-        - name: risk-management-app
-          artifacts:
-          - ./*
-          target-path: resources
-  - name: risk-management-app
-    type: html5
-    path: app
-    build-parameters:
-      supported-platforms: []
 
+      
 resources:
   - name: risk-management-auth
     type: org.cloudfoundry.managed-service
@@ -95,14 +78,12 @@ resources:
               - $XSAPPNAME.RiskViewer
         oauth2-configuration: # <-- add this
           redirect-uris:
-            - https://oysconsultorestraining-dev-risk-management.cfapps.eu20-001.hana.ondemand.com/login/callback
-            
+            - https://oysconsultorestraining-dev-risk-management.cfapps.eu20-001.hana.ondemand.com/login/callback          
   - name: risk-management-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
-
   - name: risk-management-destination-service
     type: org.cloudfoundry.managed-service
     parameters:
