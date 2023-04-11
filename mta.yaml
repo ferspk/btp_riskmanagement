@@ -35,7 +35,7 @@ modules:
       memory: 256M
     requires:
       - name: srv-api
-        group: destinations
+        group: destinations 
         properties:
           name: srv-api # must be used in xs-app.json as well
           url: ~{srv-url}
